@@ -46,5 +46,14 @@ CTRL + C                                         # para salir
 ```shell
 docker-compose run  python3 manage.py startapp <NombreApp>   
 ```
+* Migrate / Makemigration
+```shell
+docker-compose run  web python3 manage.py migrate
+docker-compose run  web python3 manage.py makemigrations   
+```
+* Create superuser
+```shell
+docker-compose run  web python3 manage.py createsuperuser
+```
 
 
