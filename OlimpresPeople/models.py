@@ -33,8 +33,8 @@ class Partner(models.Model):
         """
         ext = filename.split('.')[-1]
         filename = '{}_{}.{}'. \
-            format(self.user.id, self.user.username, ext)
-        self.remove_old_avatar('{}_'.format(self.user.id))
+            format(self.user_id.id, self.user_id.username, ext)
+        self.remove_old_avatar('{}_'.format(self.user_id.id))
 
         return os.path.join(SAVE_FILES_PATH, filename)
     
@@ -52,9 +52,9 @@ class Partner(models.Model):
                         os.remove('{}/{}'.format(SAVE_FILES_PATH, name))
         except:
             # TODO Add register in OlimpresLogs app
-            logger.error('----- AVATAR deletion ERROR: {} !!!!!!'.format(self.user.id))
+            logger.error('----- AVATAR deletion ERROR: {} !!!!!!'.format(self.user_id.id))
     
-    user = models.OneToOneField(
+    user_id = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
         blank=True,
@@ -101,8 +101,8 @@ class Partner(models.Model):
 
     def __str__(self):
         """How this record will be displayed."""
-        if self.user:
-            return self.user.username
+        if self.user_id:
+            return self.user_id.username
         return 'No user'
 
     def get_full_address(self):
