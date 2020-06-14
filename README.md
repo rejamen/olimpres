@@ -39,21 +39,21 @@ psql -U postgres -d olimpres          # se conecta a la BD
 ```
 * Entrar/Salir en modo Django Shell
 ```shell
-docker-compose run  web python3 manage.py shell  # inicia shell mode
+docker-compose run web python3 manage.py shell  # inicia shell mode
 CTRL + C                                         # para salir
 ```
 * Crear una App nueva en el proyecto
 ```shell
-docker-compose run  python3 manage.py startapp <NombreApp>   
+docker-compose run web python3 manage.py startapp <NombreApp>   
 ```
 * Migrate / Makemigration
 ```shell
-docker-compose run  web python3 manage.py migrate
-docker-compose run  web python3 manage.py makemigrations   
+docker-compose run web python3 manage.py migrate
+docker-compose run web python3 manage.py makemigrations   
 ```
 * Create superuser
 ```shell
-docker-compose run  web python3 manage.py createsuperuser
+docker-compose run web python3 manage.py createsuperuser
 ```
 
 
