@@ -4,7 +4,6 @@ from .models import Partner, City
 
 class PartnerAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'email',
         'mobile', 'phone',
         'city_id'
     )
