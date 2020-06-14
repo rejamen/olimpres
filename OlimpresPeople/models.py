@@ -109,8 +109,6 @@ class Partner(models.Model):
         """Get full address for this partner."""
         return '{} {} \n {}'.format(self.address1, self.address2, self.city_id.name)
 
-    
-
 
 class City(models.Model):
     """City model for Olimpres."""
