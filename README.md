@@ -55,5 +55,9 @@ docker-compose run web python3 manage.py makemigrations
 ```shell
 docker-compose run web python3 manage.py createsuperuser
 ```
+* Run tests
+```shell
+docker-compose run web python3 manage.py test <AppName>
+```
 
 
