@@ -33,7 +33,7 @@ class PartnerTest(TestCase):
         """----- Test partner str representation."""
         self.assertEqual(
             str(self.partner),
-            'Hi User'
+            'No user'
         )
         # set one user to partner and
         # check str representation
