@@ -26,8 +26,6 @@ class Migration(migrations.Migration):
             name='Partner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(blank=True, max_length=100, null=True)),
                 ('mobile', models.CharField(blank=True, help_text='Móvil de contacto', max_length=20, null=True, verbose_name='Móvil')),
                 ('phone', models.CharField(blank=True, help_text='Teléfono de contacto', max_length=20, null=True, verbose_name='Teléfono')),
                 ('address1', models.CharField(blank=True, max_length=300, null=True, verbose_name='Calle/No.')),

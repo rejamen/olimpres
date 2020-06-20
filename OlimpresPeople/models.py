@@ -1,8 +1,9 @@
+import os
+import logging
+
 from django.db import models
 from django.contrib.auth.models import User
 
-import os
-import logging
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -17,7 +18,7 @@ class Partner(models.Model):
     other information.
     """
     
-    def content_file_name(self, filename):
+    def set_partner_avatar_name(self, filename):
         """Create a new file for user avatar.
         
         From the uploaded file it takes the name and
@@ -38,18 +39,22 @@ class Partner(models.Model):
 
         return os.path.join(SAVE_FILES_PATH, filename)
     
-    def remove_old_avatar(self, pattern):
+    def remove_old_avatar(self, pattern, path=SAVE_FILES_PATH):
         """Remove old user avatar in file store.
         
         It search for files that match given pattern
         to delete them. The pattern is all files which
         start with "userId_"
+
+        :param: str pattern to search
+        :param: str path: for testing it can use
+            a different path.
         """
         try:
-            for root, dirs, files in os.walk(SAVE_FILES_PATH):
+            for root, dirs, files in os.walk(path):
                 for name in files:
                     if name.startswith(pattern):
-                        os.remove('{}/{}'.format(SAVE_FILES_PATH, name))
+                        os.remove('{}/{}'.format(path, name))
         except:
             # TODO Add register in OlimpresLogs app
             logger.error('----- AVATAR deletion ERROR: {} !!!!!!'.format(self.user_id.id))
@@ -94,7 +99,7 @@ class Partner(models.Model):
         verbose_name='Ciudad',
     )
     picture = models.ImageField(
-        upload_to=content_file_name,
+        upload_to=set_partner_avatar_name,
         blank=True,
         null=True
     )
