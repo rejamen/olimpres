@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Partner Home</title>
+{% endblock %}
+
+{% block top %}
+    <h3>Hola {{ user.first_name }}, </h3>
+    <a href="/partner/logout">Logout</a>
+{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <h1>Partner home...</h1>
+    </div>
+{% endblock %}
+
+
+

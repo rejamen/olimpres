@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Nuevo cliente</title>
+{% endblock %}
+
+{% block top %}
+    <h3>Únete a Olimpres,</h3>
+    <span>disfruta de nuestros servicios </span>
+{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Nombres</label>
+                <div id="inputName" required>{{ form.first_name }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputLastName" class="form-label">Apellidos</label>
+                <div id="inputLastName">{{ form.last_name }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputUser" class="form-label">Usuario</label>
+                <div id="inputUser">{{ form.username }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email</label>
+                <div id="inputEmail" required="True">{{ form.email }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword1" class="form-label">Contraseña</label>
+                <div id="inputPassword1">{{ form.password1 }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword2" class="form-label">Repetir Contraseña</label>
+                <div id="inputPassword2">{{ form.password2 }}</div>
+            </div>
+
+            <input type="submit" name="Create user" class="btn btn-primary" value="Registrar">
+
+            {{ form.errors }}
+
+            <hr class="my-4">
+            <span>¿Ya tienes una cuenta? </span><a href="/" class="btn btn-outline-primary">Iniciar sesión</a>
+
+        </form>
+    </div>
+{% endblock %}
+
+
+
